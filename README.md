@@ -51,7 +51,19 @@ The dataset is divided into movies, ratings, tags and links. We don't need links
 
 ### Discussion
 
-First, I imported the data sets. Second, I analysed those to get relevant values. For e.g. I removed unwanted features, I calculated mean of ratings of each movie based on user "ratings" dataset, etc. I also did some analysis on "tags" dataset and decided not to consider this during clustering. I came to this conclusion, because - the unique movies with tags are significatly lower than those without tags. Hence I think that it is reasonable not to consider this data for clustering (note that I may be wrong here). Also, I thought that splitting genres 
+First, I imported the data sets. Second, I analysed those to get relevant values. For e.g. I removed unwanted features, I calculated mean of ratings of each movie based on user "ratings" dataset, etc. I also did some analysis on "tags" dataset and decided not to consider this during clustering. I came to this conclusion, because - the unique movies with tags are significatly lower than those without tags. Hence I think that it is reasonable not to consider this data for clustering (note that I may be wrong here, but that's my reason and I decided to go ahead by maintaining that). Also, I thought that splitting genres will be a good idea as that will generate lots of data to analyse. Following figure shows movies per genre:
+
+![alt text](/reports/figures/genres.png)
+
+Notice that there are "no genres used" I removed those entrees (3 entrees). Then I encoded "genres" to numeric data. The idea is to convert categorial data into numerical data, to apply learning algorithms on it. Finally I built model using sklearn's k-means clustering algorithm and created a function to recommend movies.
+
+Finally I found that my function `recommend` works great!
+
+```
+> recommend("Toy Story (1995)")
+
+'Snow White and the Seven Dwarfs (1937)'
+```
 
 ### License
 
